@@ -1,6 +1,9 @@
 from print_center import print_center
 
-notnames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+chromatic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+modes={	'ionian': 0, 'dorian': 2, 'phrygian': 4, 'lydian': 5, 'mixolydian': 7, 'aeolian': 9, 'locrian': 11 }
+natscale = [0, 2, 4, 5, 7, 9, 11]
+
 fbsize=22
 fillchar='-'
 
@@ -8,9 +11,8 @@ def string(offset, scale):
 	for i, x in enumerate(range(offset, offset+fbsize+1)):
 		x%=12
 		width=3 if i==0 else 6
-		note_in_scale=notnames[x] if x in scale else fillchar
 		if x in scale:
-			print_center(notnames[x], width, fillchar, '|')
+			print_center(chromatic[x], width, fillchar, '|')
 		else:
 			print('-'*width+'|', flush=True, end='')
 	print()
