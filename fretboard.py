@@ -8,28 +8,30 @@ natscale = [0, 2, 4, 5, 7, 9, 11]
 fbsize=22
 fillchar='-'
 
-def string(offset, scale):
+def string(offset, scale, common_tones):
 	# (fret, chromatic_note): (0, 4->E), (1, 5->F), (2, 6->F#) ...
 	for fret, chromatic_note in enumerate(range(offset, offset+fbsize+1)):
 		chromatic_note%=12 # rotate down in case it exceeds 12
 		width=3 if fret==0 else 6 # just for printing
 
 		# If the chromatic note corresponding to this fret is in the scale
-		if chromatic[chromatic_note] in scale:
-			print_center(chromatic[chromatic_note], width, fillchar, '|', highlight=True)
+		note=chromatic[chromatic_note]
+		is_common=True if note in common_tones else False
+		if note in scale:
+			print_center(note, width, fillchar, '|', highlight=is_common)
 		else:
 			print('-'*width+'|', flush=True, end='')
 	print()
 
-def fretboard(scale):
+def fretboard(scale, common_tones):
 	# Index line (0, 1, 2, ... 22)
 	print()
 	print(scale)
 	for x in range(0, fbsize+1): print(str(x).center(3 if x==0 else 7, ' '), end='')
 	print()
-	string(4, scale)
-	string(11, scale)
-	string(7, scale)
-	string(2, scale)
-	string(9, scale)
-	string(4, scale)
+	string(4, scale, common_tones)
+	string(11, scale, common_tones)
+	string(7, scale, common_tones)
+	string(2, scale, common_tones)
+	string(9, scale, common_tones)
+	string(4, scale, common_tones)
