@@ -21,7 +21,7 @@ def get_scale(tonic_name, mode_name):
 	""" Second, apply the structure to the rotated chromatic scale"""
 
 	# 2, D is the 0,1,2nd of notnames
-	scale_shift=chromatic.index(tonic_name.upper())
+	scale_shift=chromatic.index(tonic_name)
 	# ['D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#']
 	chromatic_shifted=chromatic[scale_shift:]+chromatic[:scale_shift]
 

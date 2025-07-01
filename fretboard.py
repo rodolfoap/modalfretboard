@@ -1,7 +1,8 @@
 import sys
 from print_center import print_center
 
-chromatic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+#hromatic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+chromatic = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
 modes={	'ionian': 0, 'dorian': 2, 'phrygian': 4, 'lydian': 5, 'mixolydian': 7, 'aeolian': 9, 'locrian': 11 }
 natscale = [0, 2, 4, 5, 7, 9, 11]
 
@@ -35,3 +36,9 @@ def fretboard(scale, common_tones):
 	string(2, scale, common_tones)
 	string(9, scale, common_tones)
 	string(4, scale, common_tones)
+
+def fretboard_compare(scale1, scale2):
+	common_tones = [i for i in scale1 if i in scale2]
+	fretboard(scale1, common_tones)
+	fretboard(scale2, common_tones)
+	print()

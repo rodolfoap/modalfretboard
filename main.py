@@ -1,12 +1,18 @@
 #!/bin/env python3
-from fretboard import fretboard
+from fretboard import fretboard_compare
 from scale_gen import get_scale
+import sys
 
-def fretboard_compare(scale1, scale2):
-	common_tones = [i for i in scale1 if i in scale2]
-	fretboard(scale1, common_tones)
-	fretboard(scale2, common_tones)
+if len(sys.argv)<5: exit(f'''
+Usage:
+        {sys.argv[0]} [TONE1 MODE1 TONE2 MODE2]
 
-fretboard_compare(get_scale('C', 'aeolian'), get_scale('D#', 'dorian'))
+Example:
+        {sys.argv[0]} C aeolian Eb dorian # Which is the Blue Bossa modulation
 
-print()
+All tones should be expressed in uppercase with flats (e.g. _Eb_ instead of _D#_).
+
+Available modes are: ionian, dorian, phrygian, lydian, mixolydian, aeolian, locrian
+''');
+
+fretboard_compare(get_scale(sys.argv[1], sys.argv[2]), get_scale(sys.argv[3], sys.argv[4]))
