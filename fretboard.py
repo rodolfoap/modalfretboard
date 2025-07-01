@@ -1,3 +1,4 @@
+import sys
 from print_center import print_center
 
 chromatic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
@@ -15,7 +16,7 @@ def string(offset, scale):
 
 		# If the chromatic note corresponding to this fret is in the scale
 		if chromatic[chromatic_note] in scale:
-			print_center(chromatic[chromatic_note], width, fillchar, '|')
+			print_center(chromatic[chromatic_note], width, fillchar, '|', highlight=True)
 		else:
 			print('-'*width+'|', flush=True, end='')
 	print()
