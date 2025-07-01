@@ -1,4 +1,3 @@
-#!/bin/env python3
 import sys
 
 def print_center(text, width, fillchar='-', endchar=''):
@@ -17,6 +16,3 @@ def print_center(text, width, fillchar='-', endchar=''):
 	print(text, file=sys.stderr, end='', flush=True)
 	print(fillchar * right_padding, file=sys.stdout, end='', flush=True)
 	print(endchar, end='', flush=True)
-
-# Example usage
-# print_center("hello", 15)
