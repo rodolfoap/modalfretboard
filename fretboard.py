@@ -8,11 +8,14 @@ fbsize=22
 fillchar='-'
 
 def string(offset, scale):
-	for i, x in enumerate(range(offset, offset+fbsize+1)):
-		x%=12
-		width=3 if i==0 else 6
-		if x in scale:
-			print_center(chromatic[x], width, fillchar, '|')
+	# (fret, chromatic_note): (0, 4->E), (1, 5->F), (2, 6->F#) ...
+	for fret, chromatic_note in enumerate(range(offset, offset+fbsize+1)):
+		chromatic_note%=12 # rotate down in case it exceeds 12
+		width=3 if fret==0 else 6 # just for printing
+
+		# If the chromatic note corresponding to this fret is in the scale
+		if chromatic[chromatic_note] in scale:
+			print_center(chromatic[chromatic_note], width, fillchar, '|')
 		else:
 			print('-'*width+'|', flush=True, end='')
 	print()
@@ -20,6 +23,7 @@ def string(offset, scale):
 def fretboard(scale):
 	# Index line (0, 1, 2, ... 22)
 	print()
+	print(scale)
 	for x in range(0, fbsize+1): print(str(x).center(3 if x==0 else 7, ' '), end='')
 	print()
 	string(4, scale)
