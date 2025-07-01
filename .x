@@ -1,6 +1,6 @@
 case "$1" in
-e)	vi -p app .x
+e)	vi -p main.py
 	;;
-"")	./app
+"")	./main.py
 	;;
 esac
