@@ -1,7 +1,5 @@
 import sys
 from colorama import init, Fore, Style
-
-init()
 string_color=Fore.BLUE+Style.NORMAL
 
 def print_fret(text, width, fillchar='-', endchar='|', highlight=True):
@@ -19,6 +17,9 @@ def print_fret(text, width, fillchar='-', endchar='|', highlight=True):
 
 def print_empty_fret(width, fillchar='-', endchar='|'):
 	print(string_color+fillchar*width+endchar, flush=True, end='')
-	
+
+def print_init():
+	init()
+
 def print_reset():
 	print(Style.RESET_ALL)

@@ -1,5 +1,5 @@
 import sys
-from output import print_fret, print_empty_fret, print_reset
+from output import print_fret, print_empty_fret, print_reset, print_init
 
 #hromatic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 chromatic = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
@@ -27,6 +27,7 @@ def fretboard(scale_tuple, common_tones):
 	scale, scalename=scale_tuple
 	# Index line (0, 1, 2, ... 22)
 	print()
+	print_init()
 	print(f'{scalename}: {scale}')
 	for x in range(0, fbsize+1): print(str(x).center(3 if x==0 else 7, ' '), end='')
 	print()
