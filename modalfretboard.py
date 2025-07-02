@@ -29,10 +29,9 @@ for x in range(len(sys.argv[1:])//2):
 # scales == [('a', 'ionian'), ('c', 'diorian'), ('j', 'pripipilian')]
 
 print('\nCommand was:', ' '.join(sys.argv))
-print('Tones in red are common to both scales.\n')
+print('Tones in red are common to both scales.')
 
 if len(scales)==1:
-	print(f'SINGLE SCALE: {scales[0]}')
 	fretboard(get_scale(scales[0][0], scales[0][1]), chromatic)
 	print()
 else:
