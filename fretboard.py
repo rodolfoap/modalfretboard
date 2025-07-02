@@ -1,5 +1,5 @@
 import sys
-from print_center import print_center
+from output import print_fret, print_empty_fret, print_reset
 
 #hromatic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 chromatic = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
@@ -7,7 +7,6 @@ modes={	'ionian': 0, 'dorian': 2, 'phrygian': 4, 'lydian': 5, 'mixolydian': 7, '
 natscale = [0, 2, 4, 5, 7, 9, 11]
 
 fbsize=22
-fillchar='-'
 
 def string(offset, scale, common_tones):
 	# (fret, chromatic_note): (0, 4->E), (1, 5->F), (2, 6->F#) ...
@@ -19,10 +18,10 @@ def string(offset, scale, common_tones):
 		note=chromatic[chromatic_note]
 		is_common=True if note in common_tones else False
 		if note in scale:
-			print_center(note, width, fillchar, '|', highlight=is_common)
+			print_fret(note, width, highlight=is_common)
 		else:
-			print('-'*width+'|', flush=True, end='')
-	print()
+			print_empty_fret(width)
+	print_reset()
 
 def fretboard(scale_tuple, common_tones):
 	scale, scalename=scale_tuple
