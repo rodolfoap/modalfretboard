@@ -1,6 +1,6 @@
 #!/bin/env python3
 import sys
-from fretboard import fretboard_compare, chromatic, modes
+from fretboard import fretboard_compare, fretboard, chromatic, modes
 from scale_gen import get_scale
 
 def usage(message=''):
@@ -28,16 +28,14 @@ for x in range(len(sys.argv[1:])//2):
 	scales.append((scale_key, scale_mode))
 # scales == [('a', 'ionian'), ('c', 'diorian'), ('j', 'pripipilian')]
 
-print('\nCommand was:', sys.argv[0], sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4] )
-print('Tones in red are common to both scales.')
+print('\nCommand was:', ' '.join(sys.argv))
+print('Tones in red are common to both scales.\n')
 
 if len(scales)==1:
 	print(f'SINGLE SCALE: {scales[0]}')
+	fretboard(get_scale(scales[0][0], scales[0][1]), chromatic)
+	print()
 else:
 	for i in range(len(scales)-1): 
 		print('='*158)
 		fretboard_compare(get_scale(scales[i][0], scales[i][1]), get_scale(scales[i+1][0], scales[i+1][1]))
-
-# print('\nCommand was:', sys.argv[0], sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4] )
-# print('Tones in red are common to both scales.')
-# fretboard_compare(get_scale(sys.argv[1], sys.argv[2]), get_scale(sys.argv[3], sys.argv[4]))
