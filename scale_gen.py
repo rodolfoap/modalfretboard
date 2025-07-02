@@ -27,6 +27,6 @@ def get_scale(tonic_name, mode_name):
 
 	# ['D', 'E', 'F', 'G', 'A', 'A#', 'C'] # D aeolian
 	chromatic_shifted_names=[chromatic_shifted[i] for i in intervals]
-	return chromatic_shifted_names
+	return chromatic_shifted_names, f'{tonic_name} {mode_name.capitalize()}'
 
 # print(get_scale('D', 'aeolian'))

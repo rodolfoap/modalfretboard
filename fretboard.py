@@ -24,10 +24,11 @@ def string(offset, scale, common_tones):
 			print('-'*width+'|', flush=True, end='')
 	print()
 
-def fretboard(scale, common_tones):
+def fretboard(scale_tuple, common_tones):
+	scale, scalename=scale_tuple
 	# Index line (0, 1, 2, ... 22)
 	print()
-	print(scale)
+	print(f'{scalename}: {scale}')
 	for x in range(0, fbsize+1): print(str(x).center(3 if x==0 else 7, ' '), end='')
 	print()
 	string(4, scale, common_tones)
@@ -37,8 +38,8 @@ def fretboard(scale, common_tones):
 	string(9, scale, common_tones)
 	string(4, scale, common_tones)
 
-def fretboard_compare(scale1, scale2):
-	common_tones = [i for i in scale1 if i in scale2]
-	fretboard(scale1, common_tones)
-	fretboard(scale2, common_tones)
+def fretboard_compare(scale_tuple1, scale_tuple2):
+	common_tones = [i for i in scale_tuple1[0] if i in scale_tuple2[0]]
+	fretboard(scale_tuple1, common_tones)
+	fretboard(scale_tuple2, common_tones)
 	print()
