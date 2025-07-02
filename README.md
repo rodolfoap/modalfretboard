@@ -23,5 +23,22 @@ All tones should be expressed in uppercase with flats (e.g. _Eb_ instead of _D#_
 
 Available modes are: ionian, dorian, phrygian, lydian, mixolydian, aeolian, locrian
 ```
+## Examples
 
-![Example](bluebossa.png)
+### Bb Dorian scale
+
+This is not a modulation, just showing up the Bb Dorian scale
+
+![Example](BbDorian.png)
+
+### Blue Bossa
+
+Blue Bossa seems a minor third upwards modulation, but it is not, it is a tone downwards modulation.
+
+![Example](BlueBossa.png)
+
+### Giant Steps
+
+One of the most complex chord progressions.
+
+![Example](GiantSteps.png)
