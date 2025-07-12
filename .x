@@ -1,6 +1,6 @@
 case "$1" in
-e)	vi -p modalfretboard fretboard.py print_center.py scale_gen.py
+e)	vi -p modalfretboard.py fretboard.py print_center.py scale_gen.py
 	;;
-"")	./modalfretboard C aeolian Eb dorian
+"")	./modalfretboard.py C aeolian Eb dorian
 	;;
 esac
